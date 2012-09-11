@@ -1,0 +1,7 @@
+%p#notice= notice
+
+%p
+  %b Content:
+  = nested_messages @message_subtree
+
+= link_to 'Back', meeting_messages_path(@meeting)

@@ -1,0 +1,5 @@
+.message
+  = link_to message.content, message
+  .actions
+    = link_to 'Reply', new_meeting_message_path(@meeting, :parent_id => message) |
+    = link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' }

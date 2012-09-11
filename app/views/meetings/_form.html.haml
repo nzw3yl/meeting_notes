@@ -1,0 +1,12 @@
+= form_for @meeting, :html => { :class => 'form-horizontal' } do |f|
+  .control-group
+    = f.label :name, :class => 'control-label'
+    .controls
+      = f.text_field :name, :class => 'text_field'
+  .control-group
+    = f.label :agenda, :class => 'control-label'
+    .controls
+      = f.text_area :agenda, :class => 'text_area'
+  .form-actions
+    = f.submit nil, :class => 'btn btn-primary'
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), company_meetings_path(@company), :class => 'btn'

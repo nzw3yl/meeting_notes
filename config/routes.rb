@@ -1,4 +1,12 @@
 MeetingNotes::Application.routes.draw do
+  
+  
+
+  resources :companies, :shallow => true do
+    resources :meetings do
+      resources :messages
+    end
+  end
   authenticated :user do
     root :to => 'home#index'
   end

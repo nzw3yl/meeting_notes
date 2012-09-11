@@ -11,7 +11,31 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120910164413) do
+ActiveRecord::Schema.define(:version => 20120911000427) do
+
+  create_table "companies", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "meetings", :force => true do |t|
+    t.string   "name"
+    t.text     "agenda"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "company_id"
+  end
+
+  create_table "messages", :force => true do |t|
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "ancestry"
+    t.integer  "meeting_id"
+  end
+
+  add_index "messages", ["ancestry"], :name => "index_messages_on_ancestry"
 
   create_table "roles", :force => true do |t|
     t.string   "name"
